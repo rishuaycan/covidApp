@@ -1,12 +1,68 @@
-<h1>Relación de Vacunados Ris Huaycan 2021-2022</h1>
-<div class="row">
-  <div class="col">Seleccione el Establecimiento</div>
+<h3 class="title__inicio">Relación de Vacunados Ris Huaycan 2021-2022</h3>
+
+<form [formGroup]="formInicio">
+
+  <div class="row container">
+    <div class="col-3">
+      <h5>Elija el Centro de Salud</h5>
+    </div>
+    <div class="col-4">
+      <select class="form-select"
+              formControlName="centro">
+        <option *ngFor="let centro of centrosDeSalud" [value]="centro.cod_unico">
+          {{centro.establecimiento}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div>
+    {{formInicio.value | json}}
+  </div>
+  <div class="row container">
+    <div class="col-3">
+      <h5>Fecha de Vacunación</h5>
+    </div>
+    <div class="col-4">
+      <select class="form-select">
+        <option selected>Seleccione el EE.SS</option>
+        <option value="1">One</option>
+      </select>
+    </div>
+  </div>
+
+</form>
+<div class="row class title__table">
   <div class="col">
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
+    <h5>Listado de Vacunados contra la Covid-19</h5>
   </div>
 </div>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>

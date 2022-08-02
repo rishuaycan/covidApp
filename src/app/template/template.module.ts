@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TemplateRoutingModule } from './template-routing.module';
 import { InicioComponent } from './inicio/inicio.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TemplateRoutingModule } from './template-routing.module';
 
 
 @NgModule({
@@ -11,6 +12,8 @@ import { InicioComponent } from './inicio/inicio.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     TemplateRoutingModule
   ]
 })
