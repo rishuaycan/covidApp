@@ -8,15 +8,12 @@
     </div>
     <div class="col-4">
       <select class="form-select"
-              formControlName="centro">
+              formControlName="cod_unico">
         <option *ngFor="let centro of centrosDeSalud" [value]="centro.cod_unico">
           {{centro.establecimiento}}
         </option>
       </select>
     </div>
-  </div>
-  <div>
-    {{formInicio.value | json}}
   </div>
   <div class="row container">
     <div class="col-3">
@@ -40,29 +37,30 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">TIPO DCMTO</th>
+      <th scope="col">NUMERO DCMTO</th>
+      <th scope="col">FEC. DE NAC.</th>
+      <th scope="col">NOMBRES Y APELLIDOS</th>
+      <th scope="col">FEC. DE VAC.</th>
+      <th scope="col">VACUNA</th>
+      <th scope="col">DOSIS</th>
+      <th scope="col">VACUNADOR</th>
+      <th scope="col">EE.SS.</th>
+      <th scope="col">LUGAR VACUNACIÓN</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+    <tr *ngFor="let vacunado of vacunados">
+      <th scope="row"> {{ vacunado.abrev_tipo_doc }} </th>
+      <td> {{ vacunado.num_doc }} </td>
+      <td> {{vacunado.fecha_nacimiento}} </td>
+      <td> {{vacunado.paciente}} </td>
+      <td> {{vacunado.fecha_vacunacion}} </td>
+      <td> {{vacunado.Fabricante_Abrev}} </td>
+      <td> {{vacunado.dosis_aplicada}} </td>
+      <td> {{vacunado.vacunador}} </td>
+      <td> {{vacunado.establecimiento}} </td>
+      <td> {{vacunado.NOMBRE_CENTRO_VACUNACION || 'No se Especifica'}} </td>
     </tr>
   </tbody>
 </table>

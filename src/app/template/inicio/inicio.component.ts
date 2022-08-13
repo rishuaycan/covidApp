@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CentroSalud } from 'src/app/interfaces/centros.interface';
+import { Paciente } from 'src/app/interfaces/paciente.interface';
 import { TemplateService } from '../template.service';
 
 @Component({
@@ -10,9 +11,9 @@ import { TemplateService } from '../template.service';
 })
 export class InicioComponent implements OnInit {
 
-
+  vacunados: Paciente[] = [];
   formInicio: FormGroup = this.fb.group({
-    centro: ['Seleccione',[Validators.required] ]
+    cod_unico: ['Seleccione',[Validators.required] ]
   })
   centrosDeSalud: CentroSalud []= [
     {cod_unico: '0000',establecimiento: 'Seleccione Centro de Salud'},
@@ -34,7 +35,14 @@ export class InicioComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.formInicio.get('centro')?.setValue('0000');
+    this.formInicio.get('cod_unico')?.setValue('5926');
+
+    const centroDefault =  this.formInicio.value;
+    this.templateService.getPaciente(centroDefault)
+      .subscribe(({vacunados}:any) => {
+       this.vacunados = vacunados;
+        console.log(this.vacunados);
+      })
   }
 
 }
