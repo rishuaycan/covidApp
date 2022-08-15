@@ -38,7 +38,19 @@ export class InicioComponent implements OnInit {
     this.formInicio.get('cod_unico')?.setValue('5926');
 
     const centroDefault =  this.formInicio.value;
-    this.templateService.getPaciente(centroDefault)
+    this.getPacientesPorCentro(centroDefault);
+      this.listenerCentro();
+  }
+
+  listenerCentro() {
+    this.formInicio.valueChanges.subscribe(centro =>
+      this.getPacientesPorCentro(centro)
+      );
+  }
+
+
+  getPacientesPorCentro(centro: string) {
+    this.templateService.getPaciente(centro)
       .subscribe((data:any) => {
        this.vacunados = data.vacunados;
         console.log(data);

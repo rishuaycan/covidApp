@@ -6,6 +6,12 @@
   user-select: none;
 }
 
+.logo {
+  height: 100px;
+  width: 250px;
+  border-radius: 20px;
+}
+
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
