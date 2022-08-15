@@ -39,9 +39,9 @@ export class InicioComponent implements OnInit {
 
     const centroDefault =  this.formInicio.value;
     this.templateService.getPaciente(centroDefault)
-      .subscribe(({vacunados}:any) => {
-       this.vacunados = vacunados;
-        console.log(this.vacunados);
+      .subscribe((data:any) => {
+       this.vacunados = data.vacunados;
+        console.log(data);
       })
   }
 
